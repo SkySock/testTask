@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from main_app.views import get_session_id, buy_item
+from main_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('buy/<int:pk>/', get_session_id),
-    path('item/<int:pk>/', buy_item),
+    path('buy/<int:pk>/', views.get_session_id_for_item),
+    path('buy-order/<int:pk>/', views.get_session_id_for_order),
+    path('item/<int:pk>/', views.buy_item),
+    path('order/<int:pk>/', views.buy_order),
 ]
