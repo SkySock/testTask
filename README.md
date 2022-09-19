@@ -30,6 +30,8 @@ POSTGRES_USER=stripe_app
 POSTGRES_HOST=stripe-task-db
 POSTGRES_PORT=5432
 POSTGRES_PASSWORD=password
+
+STRIPE_KEY=your-stripe-key
 ```
 3. Собрать образ
 ```commandline
@@ -51,3 +53,22 @@ python ./manage.py migrate
 ```commandline
 python ./manage.py createsuperuser
 ```
+
+### Доступ к приложению
+Приложение запущено на `http://5.159.100.121/`
+
+#### Endpoints
+`admin/` - административная панель
+
+`buy/{id}/` - получение session-id для item
+
+`buy-order/{id}/` - получение session-id для order
+
+`item/{id}/` - страница с кнопкой для оплаты item
+
+`order/{id}/` - страница с кнопкой для оплаты order
+
+#### Просмотреть товары и заказы в БД можно через тестового пользователя админки:
+login - `test`
+
+password - `t1e2s3t4`
