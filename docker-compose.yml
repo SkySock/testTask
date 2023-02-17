@@ -1,6 +1,7 @@
 version: '3.7'
 services:
   stripe-task-api:
+    container_name: stripe-task-api
     build: ./
     command: python ./manage.py runserver 0.0.0.0:8000
     volumes:
@@ -12,6 +13,7 @@ services:
     depends_on:
       - stripe-task-db
   stripe-task-db:
+    container_name: stripe-task-db
     image: postgres:13-alpine
     volumes:
       - pg_data:/var/lib/postgresql/data/

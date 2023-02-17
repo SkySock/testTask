@@ -10,6 +10,9 @@ class Item(models.Model):
     class Meta:
         ordering = ['price', 'name']
 
+    def __str__(self):
+        return f"Item(id={self.pk}, name={self.name})"
+
 
 class Order(models.Model):
     items = models.ManyToManyField(Item, related_name='orders')
